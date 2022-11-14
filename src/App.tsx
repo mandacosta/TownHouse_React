@@ -1,5 +1,4 @@
-import React from "react";
-import { Landing } from "./pages/Landing/landing";
+import { RoutesMain } from "./routes/routes";
 import { ButtonStyle } from "./styles/button";
 import { GlobalStyle } from "./styles/globalSyles";
 
@@ -8,7 +7,8 @@ function App() {
     <>
       <GlobalStyle />
       <ButtonStyle />
-      <Landing />
+
+      <RoutesMain />
     </>
   );
 }
