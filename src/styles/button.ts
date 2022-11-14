@@ -14,6 +14,7 @@ export const ButtonStyle = createGlobalStyle`
         align-items: center;
         justify-content: center;
         font-weight: 500;
+        border: none;
     }
 
     .btn.primary{
@@ -27,6 +28,14 @@ export const ButtonStyle = createGlobalStyle`
 
     .btn:hover{
         opacity: 100%;
+    }
+
+    .btn.submit{
+        opacity:100%;
+    }
+
+    .btn.submit:disabled{
+        opacity:50%;
     }
 
 
