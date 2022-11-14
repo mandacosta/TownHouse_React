@@ -1,39 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyledForm, StyledPage } from "../../styles/styled_Login_Register";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { PasswordInput } from "../../components/PasswordInput/passwordInput";
 import { TextInput } from "../../components/TextInput/textInput";
 import { ThemeComponent } from "../../components/ThemeProviderMUI/themeProvider";
 import { Link } from "react-router-dom";
+import { registerSchema } from "../../validations/login_register";
+import { IUser } from "../../services/userServices/login";
+import { AuthContext } from "../../context/authContext";
 
-export const registerSchema = yup.object({
-  name: yup.string().required("Nome é obrigatório"),
-  email: yup
-    .string()
-    .email("Deve ser um e-mail válido")
-    .required("Email obrigatório"),
-  password: yup
-    .string()
-    .required("Senha é obrigatória")
-    .matches(/[A-Z]/, "Deve conter ao menos 1 letra maiúscula")
-    .matches(/[a-z]/, "Deve conter ao menos 1 letra minúscula")
-    .matches(/[(\d)]/, "Deve conter ao menos 1 número")
-    .matches(/[!@#$%*()~^]/, "Deve conter ao menos 1 caracter especial")
-    .min(8, "Deve ter no mínimo 8 caracteres")
-    .max(16, "Deve ter no máximo 16 caracteres"),
-
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref("password")], "As senhas não correspondem"),
-  aptNumber: yup.string().required("Apartamento é obrigatório"),
-  contact: yup.number().required("Um telefone para contato é obrigatório"),
-});
+export interface IRegisterForm extends IUser {
+  confirmPassword: string;
+}
 
 export const Register = () => {
   const [showPassWord, setShowPassWord] = useState(false);
   const [showPassWordConf, setShowPassWordConf] = useState(false);
+  const { registerUser } = useContext(AuthContext);
 
   const {
     register,
@@ -41,11 +25,22 @@ export const Register = () => {
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onChange", resolver: yupResolver(registerSchema) });
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = handleSubmit((data) => {
+    const formData = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      aptNumber: data.aptNumber,
+      contact: data.contact,
+      isSyndic: false,
+    };
+    registerUser(formData);
+  });
+
   return (
     <ThemeComponent primary={false}>
       <StyledPage>
-        <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <StyledForm onSubmit={onSubmit}>
           <h1>TOWN HOUSE</h1>
           <TextInput
             register={register}
