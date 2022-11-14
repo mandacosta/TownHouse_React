@@ -63,7 +63,7 @@ export const IssuesContext = createContext({} as IIssuesContext);
 
 export const IssuesProvider = ({ children }: IIssuesContextProps) => {
   const [issuesList, setIssuesList] = useState<IIssuesResponse[]>([]);
-  const [filter, setFilter] = useState<string>("todos");
+  const [filter, setFilter] = useState<string>("aviso");
   const [currentIssue, setCurrentIssue] = useState<
     IIssuesResponse | null | undefined
   >(null);
