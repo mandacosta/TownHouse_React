@@ -1,23 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyledForm, StyledPage } from "../../styles/styled_Login_Register";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { PasswordInput } from "../../components/PasswordInput/passwordInput";
 import { TextInput } from "../../components/TextInput/textInput";
 import { ThemeComponent } from "../../components/ThemeProviderMUI/themeProvider";
 import { Link } from "react-router-dom";
-
-export const schemaLogin = yup.object({
-  email: yup
-    .string()
-    .required("Email não pode estar em branco")
-    .email("Deve ser um e-mail válido"),
-  password: yup.string().required("Senha não pode estar em branco"),
-});
+import { schemaLogin } from "../../validations/login_register";
+import { AuthContext } from "../../context/authContext";
 
 export const Login = () => {
   const [showPassWord, setShowPassWord] = useState(false);
+  const { loginUser, loading } = useContext(AuthContext);
 
   const {
     register,
@@ -25,11 +19,19 @@ export const Login = () => {
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onChange", resolver: yupResolver(schemaLogin) });
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = handleSubmit((data) => {
+    const dataLogin = {
+      email: data.email,
+      password: data.password,
+    };
+    console.log(dataLogin);
+    loginUser(dataLogin);
+  });
+
   return (
     <ThemeComponent primary={true}>
       <StyledPage>
-        <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <StyledForm onSubmit={onSubmit}>
           <h1>TOWN HOUSE</h1>
           <TextInput
             register={register}
