@@ -57,6 +57,7 @@ interface IIssuesContext {
   setNewIssue: React.Dispatch<React.SetStateAction<string>>;
   typeIssue: string | undefined;
   setTypeIssue: React.Dispatch<React.SetStateAction<string | undefined>>;
+  issuesList: IIssuesResponse[];
 }
 
 export const IssuesContext = createContext({} as IIssuesContext);
@@ -212,6 +213,7 @@ export const IssuesProvider = ({ children }: IIssuesContextProps) => {
     setNewIssue: setNewIssue,
     typeIssue: typeIssue,
     setTypeIssue: setTypeIssue,
+    issuesList: issuesList,
   };
 
   return (
