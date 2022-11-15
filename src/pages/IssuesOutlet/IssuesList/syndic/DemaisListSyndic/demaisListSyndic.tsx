@@ -15,8 +15,9 @@ export const DemaisListSyndic = () => {
           return issue.type !== "aviso";
         })
         .map((issue) => {
-          return <IssueCard issue={issue} />;
-        })}
+          return <IssueCard issue={issue} key={issue.id} />;
+        })
+        .reverse()}
     </ul>
   );
 };

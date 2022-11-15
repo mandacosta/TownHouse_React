@@ -7,8 +7,6 @@ export const DemaisListResident = () => {
   const { issuesList } = useContext(IssuesContext);
   const { user } = useContext(AuthContext);
 
-  //ícone de excluir e editar
-
   return (
     <ul>
       {issuesList
@@ -16,8 +14,9 @@ export const DemaisListResident = () => {
           return issue.type !== "aviso" && issue.user.id === user?.id;
         })
         .map((issue) => {
-          return <IssueCard issue={issue} />;
-        })}
+          return <IssueCard issue={issue} key={issue.id} />;
+        })
+        .reverse()}
     </ul>
   );
 };
