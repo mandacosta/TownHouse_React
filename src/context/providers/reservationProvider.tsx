@@ -1,6 +1,10 @@
-import { ReservationOutlet } from "../../pages/ReservationOutlet/reservationOutlet";
+import { ReservationOutlet } from "../../pages/Reservation/reservation";
+import { ReservationProvider } from "../reservationContext";
 
-//Falta envolver com o provider de reservation
 export const ReservationProviderComponent = () => {
-  return <ReservationOutlet />;
+  return (
+    <ReservationProvider>
+      <ReservationOutlet />
+    </ReservationProvider>
+  );
 };

@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@hassanmojab/react-modern-calendar-datepicker": "^3.1.7",
     "@hookform/resolvers": "^2.9.10",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.13",
@@ -23,8 +24,10 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.39.3",
     "react-icons": "^4.6.0",
+    "react-modern-calendar-datepicker": "^3.1.6",
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
+    "react-select": "^5.6.1",
     "react-toastify": "^9.1.1",
     "styled-components": "^5.3.6",
     "typescript": "^4.4.2",

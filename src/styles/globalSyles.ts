@@ -47,8 +47,14 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .subTitle{
-        font-size: 300;
+        font-weight: 300;
         color: var(--gray-1);
     }
+
+    .subTitle.black{
+        color: var(--black);
+    }
+
+
 
 `;

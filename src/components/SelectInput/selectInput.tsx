@@ -24,6 +24,7 @@ export const SelectInput = ({
   const handleChange = (event: SelectChangeEvent) => {
     setState(event.target.value);
   };
+
   return (
     <>
       <ThemeComponent primary={true}>
@@ -37,11 +38,15 @@ export const SelectInput = ({
             fullWidth
           >
             {optionList.map((option) => {
-              return (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              );
+              if (option.label && option.value) {
+                return (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                );
+              } else {
+                return null;
+              }
             })}
           </Select>
         </div>

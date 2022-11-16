@@ -26,6 +26,10 @@ export const ButtonStyle = createGlobalStyle`
         background-color: var(--color-secondary);
     }
 
+    .btn.cancel{
+        background-color: var(--gray-1);
+    }
+
     .btn:hover{
         opacity: 100%;
     }
