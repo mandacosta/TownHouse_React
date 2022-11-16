@@ -52,6 +52,11 @@ export const StyledCard = styled.li`
   .date {
     text-align: end;
   }
+
+  .date_resident {
+    width: 100%;
+    text-align: end;
+  }
 `;
 
 export const StyledTag = styled.span<IIssueType>`

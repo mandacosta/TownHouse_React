@@ -4,6 +4,8 @@ import { ThemeComponent } from "../../../../../components/ThemeProviderMUI/theme
 import { IssuesContext } from "../../../../../context/issuesContext";
 import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
+import { StyledNewIssue } from "./styleNewIssue";
+import FormControl from "@mui/material/FormControl";
 
 export const NewIssue = () => {
   const { setNewDate, setNewIssue, setModalCreate, setTypeIssue, typeIssue } =
@@ -32,19 +34,24 @@ export const NewIssue = () => {
 
   return (
     <>
-      <div>
-        <SelectInput
-          optionList={optionList}
-          state={typeIssue}
-          setState={setTypeIssue}
-          label={"Tipo"}
-        />
+      <StyledNewIssue>
+        <div className="form_mui">
+          <FormControl fullWidth>
+            <SelectInput
+              optionList={optionList}
+              state={typeIssue}
+              setState={setTypeIssue}
+              label={"Tipo"}
+            />
+          </FormControl>
+        </div>
+
         <form onSubmit={onSubmit}>
           <ThemeComponent primary={true}>
-            <TextField {...register("title")} label={"Assunto"} />
+            <TextField {...register("title")} label={"Assunto"} fullWidth />
           </ThemeComponent>
         </form>
-      </div>
+      </StyledNewIssue>
     </>
   );
 };

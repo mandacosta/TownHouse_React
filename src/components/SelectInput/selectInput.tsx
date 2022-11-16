@@ -27,16 +27,24 @@ export const SelectInput = ({
   return (
     <>
       <ThemeComponent primary={true}>
-        <InputLabel>{label}</InputLabel>
-        <Select value={state} label={label} onChange={handleChange}>
-          {optionList.map((option) => {
-            return (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            );
-          })}
-        </Select>
+        <div>
+          <InputLabel>{label}</InputLabel>
+          <Select
+            value={state}
+            label={label}
+            onChange={handleChange}
+            placeholder={label}
+            fullWidth
+          >
+            {optionList.map((option) => {
+              return (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </div>
       </ThemeComponent>
     </>
   );

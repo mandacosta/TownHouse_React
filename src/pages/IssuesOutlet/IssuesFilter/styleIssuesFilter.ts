@@ -12,8 +12,8 @@ export const StyledIssuesFilter = styled.div`
   button {
     width: 50%;
     max-width: 200px;
+    margin: 20px 0;
     height: 56px;
-    margin-top: 20px;
     border: none;
     transition: 0.5s;
     cursor: pointer;

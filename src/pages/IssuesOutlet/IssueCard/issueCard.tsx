@@ -93,7 +93,7 @@ export const IssueCard = ({ issue }: iIssueCardProps) => {
             <MdEdit className="icon" onClick={handleEdit} />{" "}
           </div>
           <div className="info_container">
-            <span>{issue.date}</span>
+            <span className="date_resident">{issue.date}</span>
           </div>
         </>
       ) : null}
