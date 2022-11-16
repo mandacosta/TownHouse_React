@@ -11,13 +11,13 @@ export const IssuesFilter = () => {
   const [activeFilter, setActiveFilter] = useState<string>("aviso");
 
   const onClickAviso = () => {
-    //setFilter("aviso")
+    setFilter("aviso");
 
     setActiveFilter("aviso");
   };
 
   const onClickDemais = () => {
-    //setFilter("demais")
+    setFilter("demais");
 
     setActiveFilter("demais");
   };

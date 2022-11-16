@@ -1,23 +1,16 @@
 import styled from "styled-components";
 
 export const StyledMain = styled.main`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  /* padding-bottom: 100px; */
   background-color: var(--background);
 
   .outlet {
     width: 100%;
-    /* height: calc(100vh - 150px);
-    height: 100%; */
-    height: fit-content;
+    min-height: 100vh;
     max-width: 1000px;
     margin: 80px auto 0 auto;
     background-color: #fff;
-  }
-
-  @media (min-width: 1024px) {
-    .outlet {
-      height: calc(100vh - 80px);
-    }
   }
 `;

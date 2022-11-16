@@ -39,8 +39,6 @@ interface IIssuesContext {
   setFilter: React.Dispatch<React.SetStateAction<string>>;
   filter: string;
   filteredIssues: IIssuesResponse[] | null | undefined;
-  currentIssue: IIssuesResponse | null | undefined;
-  setCurrentIssueFunction(id: number): void;
   modalCreate: boolean;
   setModalCreate: React.Dispatch<React.SetStateAction<boolean>>;
   modalDelete: boolean;
@@ -55,15 +53,21 @@ interface IIssuesContext {
   setNewDate: React.Dispatch<React.SetStateAction<string>>;
   newIssue: string;
   setNewIssue: React.Dispatch<React.SetStateAction<string>>;
-  typeIssue: string | undefined;
-  setTypeIssue: React.Dispatch<React.SetStateAction<string | undefined>>;
+  typeIssue: string;
+  setTypeIssue: React.Dispatch<React.SetStateAction<string>>;
+  issuesList: IIssuesResponse[];
+  setCurrentIssue: React.Dispatch<
+    React.SetStateAction<IIssuesResponse | null | undefined>
+  >;
+  currentIssue: IIssuesResponse | null | undefined;
+  setCurrentIssueFunction(id: number): void;
 }
 
 export const IssuesContext = createContext({} as IIssuesContext);
 
 export const IssuesProvider = ({ children }: IIssuesContextProps) => {
   const [issuesList, setIssuesList] = useState<IIssuesResponse[]>([]);
-  const [filter, setFilter] = useState<string>("todos");
+  const [filter, setFilter] = useState<string>("aviso");
   const [currentIssue, setCurrentIssue] = useState<
     IIssuesResponse | null | undefined
   >(null);
@@ -74,7 +78,7 @@ export const IssuesProvider = ({ children }: IIssuesContextProps) => {
   const [loading, setLoading] = useState(false);
   const [date, setNewDate] = useState<string>("");
   const [newIssue, setNewIssue] = useState<string>("");
-  const [typeIssue, setTypeIssue] = useState<string | undefined>("");
+  const [typeIssue, setTypeIssue] = useState<string>("");
 
   //Sempre que o estado filter mudar, a filteredIssues também muda.
   let filteredIssues =
@@ -194,7 +198,6 @@ export const IssuesProvider = ({ children }: IIssuesContextProps) => {
     setFilter: setFilter,
     filteredIssues: filteredIssues,
     currentIssue: currentIssue,
-    setCurrentIssueFunction: setCurrentIssueFunction,
     modalCreate: modalCreate,
     setModalCreate: setModalCreate,
     modalDelete: modalDelete,
@@ -212,6 +215,9 @@ export const IssuesProvider = ({ children }: IIssuesContextProps) => {
     setNewIssue: setNewIssue,
     typeIssue: typeIssue,
     setTypeIssue: setTypeIssue,
+    issuesList: issuesList,
+    setCurrentIssue: setCurrentIssue,
+    setCurrentIssueFunction: setCurrentIssueFunction,
   };
 
   return (

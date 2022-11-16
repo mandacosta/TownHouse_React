@@ -19,9 +19,12 @@ export const GlobalStyle = createGlobalStyle`
     
     --white: #FFFFFF;
 
-    --sucess: #82C91E;
-    --error: #F03E3E;
-    --warning: #FCC419;
+    --aviso: #456b10;
+    --aviso-opacity:rgba(130, 201, 30, 0.3);
+    --reclamacao: #a52727;
+    --reclamacao-opacity: rgba(240, 62, 62, 0.3);
+    --solicitacao: #81650d;
+    --solicitacao-opacity: rgba(252, 196, 25, 0.3);
 
 
     --font-primary: 'Roboto', sans-serif;
