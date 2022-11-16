@@ -25,7 +25,6 @@ export const Login = () => {
       email: data.email,
       password: data.password,
     };
-    console.log(dataLogin);
     loginUser(dataLogin);
   });
 
