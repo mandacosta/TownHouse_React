@@ -3,13 +3,13 @@ import { ProtectedSyndic } from "../context/protectedSyndic";
 import { IssuesProviderComponent } from "../context/providers/issuesProvider";
 import { ProtectedRoutes } from "../context/providers/protectedRoutes";
 import { ReservationProviderComponent } from "../context/providers/reservationProvider";
-import { ResidentListProvider } from "../context/providers/residentListProvider";
 import { Landing } from "../pages/Landing/landing";
 import { Login } from "../pages/Login/login";
 import { ProfileOutlet } from "../pages/ProfileOutlet/profileOutlet";
 import { Register } from "../pages/Register/register";
 import { ResidentDash } from "../pages/ResidentDash/residentDash";
 import { SyndicDash } from "../pages/SyndicDash/syndicDash";
+import { UserProviderComponent } from "../context/providers/userProvider";
 
 export const RoutesMain = () => {
   return (
@@ -28,7 +28,7 @@ export const RoutesMain = () => {
             />
             <Route
               path="/syndic_dash/resident_delete"
-              element={<ResidentListProvider />}
+              element={<UserProviderComponent />}
             />
             <Route path="/syndic_dash/profile" element={<ProfileOutlet />} />
           </Route>
