@@ -41,20 +41,7 @@ export interface IDayMod {
   id?: number;
 }
 
-//export type TAreas = "saloon" | "grill" | "pool" | null | undefined | "";
-
 export type TAreas = string | null | undefined;
-
-// export interface IComomArea {
-//   value: "grill" | "pool" | "saloon" | null | undefined;
-//   label:
-//     | "Churrasqueira"
-//     | "Piscina"
-//     | "Salão de Festas"
-//     | null
-//     | undefined
-//     | "";
-// }
 
 export interface IComomArea {
   value: string | null | undefined;

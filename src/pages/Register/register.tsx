@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { registerSchema } from "../../validations/login_register";
 import { IUser } from "../../services/userServices/login";
 import { AuthContext } from "../../context/authContext";
+import { Loading } from "../../components/Loading/loading";
 
 export interface IRegisterForm extends IUser {
   confirmPassword: string;
@@ -17,7 +18,7 @@ export interface IRegisterForm extends IUser {
 export const Register = () => {
   const [showPassWord, setShowPassWord] = useState(false);
   const [showPassWordConf, setShowPassWordConf] = useState(false);
-  const { registerUser } = useContext(AuthContext);
+  const { registerUser, loading } = useContext(AuthContext);
 
   const {
     register,
@@ -38,69 +39,72 @@ export const Register = () => {
   });
 
   return (
-    <ThemeComponent primary={false}>
-      <StyledPage>
-        <StyledForm onSubmit={onSubmit}>
-          <h1>TOWN HOUSE</h1>
-          <TextInput
-            register={register}
-            dataName="name"
-            errors={errors.name?.message}
-            label="Nome"
-          />
-          <TextInput
-            register={register}
-            dataName="email"
-            errors={errors.email?.message}
-            label="Email"
-          />
+    <>
+      <Loading loading={loading} />
+      <ThemeComponent primary={false}>
+        <StyledPage>
+          <StyledForm onSubmit={onSubmit}>
+            <h1>TOWN HOUSE</h1>
+            <TextInput
+              register={register}
+              dataName="name"
+              errors={errors.name?.message}
+              label="Nome"
+            />
+            <TextInput
+              register={register}
+              dataName="email"
+              errors={errors.email?.message}
+              label="Email"
+            />
 
-          <PasswordInput
-            showPassWord={showPassWord}
-            setShowPassWord={setShowPassWord}
-            register={register}
-            dataName="password"
-            errors={errors.password?.message}
-            label="Senha"
-          />
+            <PasswordInput
+              showPassWord={showPassWord}
+              setShowPassWord={setShowPassWord}
+              register={register}
+              dataName="password"
+              errors={errors.password?.message}
+              label="Senha"
+            />
 
-          <PasswordInput
-            showPassWord={showPassWordConf}
-            setShowPassWord={setShowPassWordConf}
-            register={register}
-            dataName="confirmPassword"
-            errors={errors.confirmPassword?.message}
-            label="Confirmar Senha"
-          />
+            <PasswordInput
+              showPassWord={showPassWordConf}
+              setShowPassWord={setShowPassWordConf}
+              register={register}
+              dataName="confirmPassword"
+              errors={errors.confirmPassword?.message}
+              label="Confirmar Senha"
+            />
 
-          <TextInput
-            register={register}
-            dataName="aptNumber"
-            errors={errors.aptNumber?.message}
-            label="Apatamento"
-          />
-          <TextInput
-            register={register}
-            dataName="contact"
-            errors={errors.contact?.message}
-            label="Número para contato"
-          />
+            <TextInput
+              register={register}
+              dataName="aptNumber"
+              errors={errors.aptNumber?.message}
+              label="Apatamento"
+            />
+            <TextInput
+              register={register}
+              dataName="contact"
+              errors={errors.contact?.message}
+              label="Número para contato"
+            />
 
-          <button
-            className="btn secondary submit"
-            type="submit"
-            disabled={!isDirty || !isValid}
-          >
-            Cadastrar
-          </button>
-          <div className="container_link">
-            <span className="subTitle">
-              {" "}
-              Ou, clique <Link to="/login">aqui</Link> para fazer login!
-            </span>
-          </div>
-        </StyledForm>
-      </StyledPage>
-    </ThemeComponent>
+            <button
+              className="btn secondary submit"
+              type="submit"
+              disabled={!isDirty || !isValid}
+            >
+              Cadastrar
+            </button>
+            <div className="container_link">
+              <span className="subTitle">
+                {" "}
+                Ou, clique <Link to="/login">aqui</Link> para fazer login!
+              </span>
+            </div>
+          </StyledForm>
+        </StyledPage>
+      </ThemeComponent>
+    </>
   );
 };

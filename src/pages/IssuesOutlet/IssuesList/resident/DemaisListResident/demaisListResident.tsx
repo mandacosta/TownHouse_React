@@ -8,16 +8,23 @@ export const DemaisListResident = () => {
   const { issuesList } = useContext(IssuesContext);
   const { user } = useContext(AuthContext);
 
+  const filteredIssues = issuesList.filter((issue) => {
+    return issue.type !== "aviso" && issue.user.id === user?.id;
+  });
+
   return (
     <StyledList>
-      {issuesList
-        .filter((issue) => {
-          return issue.type !== "aviso" && issue.user.id === user?.id;
-        })
-        .map((issue) => {
-          return <IssueCard issue={issue} key={issue.id} />;
-        })
-        .reverse()}
+      {filteredIssues.length > 0 ? (
+        filteredIssues
+          .map((issue) => {
+            return <IssueCard issue={issue} key={issue.id} />;
+          })
+          .reverse()
+      ) : (
+        <p className="subTitle emptyList">
+          Não existem solicitações ou reclamações 🔍
+        </p>
+      )}
     </StyledList>
   );
 };
