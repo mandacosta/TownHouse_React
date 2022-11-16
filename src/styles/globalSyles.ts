@@ -55,6 +55,13 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--black);
     }
 
+    .subTitle.emptyList{
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
 
 
 `;
