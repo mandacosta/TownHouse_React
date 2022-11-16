@@ -37,6 +37,7 @@ export const PasswordInput = ({
 }: iPassWordInputProps) => {
   return (
     <FormControl variant="outlined">
+      <p className="error">{errors ? `${errors}` : ``}</p>
       <InputLabel>{label}</InputLabel>
       <OutlinedInput
         type={showPassWord ? "text" : "password"}
@@ -54,7 +55,6 @@ export const PasswordInput = ({
           </InputAdornment>
         }
       />
-      <p className="subTitle">{errors ? `${errors}` : ``}</p>
     </FormControl>
   );
 };
