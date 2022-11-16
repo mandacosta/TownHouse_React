@@ -16,7 +16,7 @@ export const ModalDelete = () => {
       {modalDelete ? (
         <StyledModal>
           <form onSubmit={onSubmit}>
-            <p>Deseja deletar este tópico ?</p>
+            <p className="subTitle black">Deseja deletar este tópico ?</p>
             <div className="btn_container">
               <span
                 className="btn primary"

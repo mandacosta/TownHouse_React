@@ -26,8 +26,8 @@ export const TextInput = ({
 }: iTextInputProps) => {
   return (
     <>
+      <p className="error">{errors ? `${errors}` : ``}</p>
       <TextField {...register(`${dataName}`)} label={label} />
-      <p className="subTitle">{errors ? `${errors}` : ``}</p>
     </>
   );
 };
