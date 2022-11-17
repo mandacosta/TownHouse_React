@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Projeto_Front-end_3 - REACT🏁
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🏘️ TOWN HOUSE !
 
-## Available Scripts
+### 🇬🇧 en
+Final project for the third module (ReactJS and TypeScript) at Kenzie Academy Brasil
 
-In the project directory, you can run:
+#### Goals
+It is an application with the purpose of helping syndics to more easily manage the day-to-day in the condominiums. With it, you can post notices that are visible to all residents, respond to or create requests/complaints (if you are a syndic or resident), reserve common spaces in the condominium (such as grill, pool and saloon) and delete residents (if you are a syndic).
 
-### `yarn start`
+#### Main issues
+- REACT and TypeScript
+- Creating FakeAPI with json.server
+- Routes with react-router-dom
+- Protected routes with ContextAPI
+- Styling with Styled-components, Material UI and others
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+👀 Please feel free to check my LinkedIn post about this project:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<a href="https://www.linkedin.com/feed/update/urn:li:activity:6998994051035217921/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"> </a>
 
-### `yarn test`
+Deploy: https://town-house.vercel.app/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Login syndic:
 
-### `yarn build`
+```
+ email: sindico@mail.com
+ password: bestPassw0rd
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Screen shots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://user-images.githubusercontent.com/106614499/202460357-eda01381-3449-4fa0-a644-0b8b3ac3f91e.png)
+![image](https://user-images.githubusercontent.com/106614499/202460919-9d70709d-f280-46ae-9269-38a58d4c3f77.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
